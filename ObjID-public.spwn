@@ -1,0 +1,26 @@
+extract obj_props
+let ID = 1
+let xPos = 45
+let yPos = 2355
+let loop = true
+let stopID = 2000
+while loop == true{
+    if ID < stopID {
+        for num in 0..stopID/20{
+         $.add(obj {
+            OBJ_ID: ID,
+            X: xPos,
+            Y: yPos,
+            SCALING: 1.0
+            })
+         $.add(@string(ID).to_obj().with(X, xPos).with(Y, yPos + -30).with(SCALING, 0.5))
+         ID = ID + 1
+         xPos = xPos + 60
+        }
+    xPos = 45
+    yPos = yPos - 120
+    } 
+    else {
+    loop = false
+    }
+}
