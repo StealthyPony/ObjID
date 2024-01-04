@@ -3,17 +3,18 @@ let ID = 1
 let xPos = 45
 let yPos = 2355
 let loop = true
-let stopID = 2000
+let stopID = 4000
+let rowSize = (stopID/((yPos-45)/120).ceil()).floor()
 while loop == true{
     if ID < stopID {
-        for num in 0..stopID/20{
+        for num in 0..rowSize{
          $.add(obj {
             OBJ_ID: ID,
             X: xPos,
             Y: yPos,
             SCALING: 1.0
             })
-         $.add(@string(ID).to_obj().with(X, xPos).with(Y, yPos + -30).with(SCALING, 0.5))
+         $.add(@string(ID).to_obj().with(X, xPos).with(Y, yPos + -30).with(SCALING, 0.5).with(Z_LAYER, 11))
          ID = ID + 1
          xPos = xPos + 60
         }
